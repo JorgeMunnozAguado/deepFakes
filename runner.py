@@ -142,6 +142,19 @@ def save_checkpoint(optimizer, model, epoch, filename):
     torch.save(checkpoint_dict, filename)
 
 
+def load_checkpoint(model, filename, optimizer=None):
+
+    checkpoint_dict = torch.load(filename)
+    epoch = checkpoint_dict['epoch']
+
+    # model.load_state_dict(checkpoint_dict['model'])
+    model.load_state_dict(checkpoint_dict['model'], strict=False)
+
+    if optimizer is not None:
+        optimizer.load_state_dict(checkpoint_dict['optimizer'])
+
+    return epoch
+
 
 
 if __name__ == '__main__':

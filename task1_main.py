@@ -23,7 +23,6 @@ def main():
     create_csv(root_dir_train, root_dir_test, train_path, test_path)
     
     preprocess = FaceRecog(margin=7)
-    # preprocess = None
 
     batch_size = 55
 
