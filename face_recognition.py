@@ -65,7 +65,7 @@ class FaceRecog(object):
 
         for (x,y,w,h) in list_boxes:
 
-            img_c = FaceRecog.cutImage(img, x, y, w, h, margin=20)
+            img_c = FaceRecog.cutImage(img, x, y, w, h, margin=margin)
 
             list_imgs.append( img_c )
 
@@ -88,8 +88,8 @@ class FaceRecog(object):
 
 if __name__ == '__main__':
 
-    img = cv2.imread('test.jpg')
+    img = cv2.imread('test2.jpg')
 
     fase_r = FaceRecog()
     faces = fase_r.detect(img)
-    l = FaceRecog.getFaces(img, faces)
+    l = FaceRecog.getFaces(img, faces, margin=0, display=True)
